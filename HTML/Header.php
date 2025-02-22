@@ -29,17 +29,23 @@
                             <text_icon style="width: 181.05px; left: 50px;top: 15px;bottom: 15px;position: absolute;text-align: center;">Game Store</text_icon>
                         </a>
                     </icon>
-                    <div style="width: 510px; height: 40px; position: relative; padding: 10px; flex-direction: row; display: inline-flex;">
+                    <div style="width: 170px;height: 60px;position: relative;padding: 5px;">
                         <icon>
                             <a href="#library">
                                 <img src="Image/Game Library.png">
-                                <text_icon style="width: 181.05px;left: 50px;top: 12px;bottom: 15px;position: absolute;text-align: center;">Game Library</text_icon>
+                                <!-- <text_icon style="width: 181.05px;left: 50px;top: 12px;bottom: 15px;position: absolute;text-align: center;">Game Library</text_icon> -->
                             </a>
                         </icon>
-                        <icon style="width: 150px;top: 5px;">
+                        <icon>
+                            <a href="UserProfile.php">
+                                <img src="Image/Profile.png">
+                                <!-- <text_icon style="width: 181.05px;left: 50px;top: 12px;bottom: 15px;position: absolute;text-align: center;">User Profile</text_icon> -->
+                            </a>
+                        </icon>
+                        <icon style="bottom: 5px;">
                             <a href="PHP/logout.php">
                                 <img src="Image/log-out.png">
-                                <text_icon style="width: 100px;left: 50px;top: 7px;bottom: 15px;position: absolute;color: red;/* text-align: center; */">Log out</text_icon>
+                                <!-- <text_icon style="width: 100px;left: 50px;top: 7px;bottom: 15px;position: absolute;color: red;/* text-align: center; */">Log out</text_icon> -->
                             </a>
                         </icon>
                         <!-- <div style="width: 260px; height: 40px; display: inline-flex;">

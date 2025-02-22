@@ -55,8 +55,28 @@ class User{
         return $statement->execute();
     }
 
+    public function updatePassword($data)
+    {
+        $sql = "UPDATE `users` SET `password`=:pswd WHERE `username`=:username ";
+        $statement = $this->database->database->prepare($sql);
+        $statement->bindParam(':username', $data['username'],PDO::PARAM_STR);
+        $statement->bindParam(':pswd', $data['newpassword'],PDO::PARAM_STR);
+        return $statement->execute();
+    }
+
+    public function checkAccount($data){
+        $sql = "SELECT * FROM `users` WHERE `username`=:username  AND `password`=:pswd";
+        $statement = $this->database->database->prepare($sql);
+        $statement->bindParam(':username', $data['username'], PDO::PARAM_STR);
+        $statement->bindParam(':pswd', $data['password'], PDO::PARAM_STR);
+
+        $statement->execute();
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        return $user;
+    }
+
     public function deleteUser($id){
-        $sql = "DELETE FROM `users` WHERE `iduser` = :id";
+        $sql = "DELETE FROM `users` WHERE `id` = :id";
 
         // prepare the statement for execution
         $statement = $this->database->database->prepare($sql);

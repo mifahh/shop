@@ -26,8 +26,11 @@
                                     <input type="password" name="password" id="password" style="width: 386px; border-style: none;display: inline-flex; padding-left: 15px;padding-right: 15px;">
                                 </fillform>
                             </formpicture>
-                            <div style="display: inline-flex;align-items: center;"> 
+                            <div style="display: inline-flex;align-items: center;justify-content: space-between;"> 
                                 <a href="Register.php">Dont have account? Register now!</a>
+                                <a href="ForgotPassword.php">Forgot your Password?</a>
+                            </div>
+                            <div style="display: inline-flex;align-items: center;justify-content: center; padding: 25px;">
                                 <button id="logbutton" name="logbutton" type="submit" style="width: 192px; height: 52px; position: relative; padding: 10px; margin: auto; background: #18A0FB; border-radius: 6px; border: none;">
                                     <text_tombol style="left: 64.03px; top: 16.30px; position: static; color:  white;">Login</text_tombol>
                                 </button>

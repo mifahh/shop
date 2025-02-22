@@ -20,14 +20,14 @@
         if($data['username']!=null && $data['password']!=null){        
             $user = $usr->auth($data);
             // var_dump($user);
-            // echo "Nilai Parameter 1 : " . $user['iduser'];
+            // echo "Nilai Parameter 1 : " . $user['id'];
             // echo "Nilai Parameter 2 : " . $user['username'];
             // echo "Nilai Parameter 3 : " . $user['password'];
             // echo "Nilai Parameter 3 : " . $user['email'];
             
             if($user!=null){
                 session_start();
-                $_SESSION["idusr"]=$user["iduser"];
+                $_SESSION["id"]=$user["id"];
                 $_SESSION["usr"]=$user["username"];
                 $_SESSION["password"]=$user["password"];
                 $_SESSION["email"]=$user["email"];
