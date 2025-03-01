@@ -10,7 +10,7 @@
                             <h3>Create your Account</h3>
                             <?php if(@$_GET['pesan']!=null):
                             ?>
-                                <script>alert('<?=@$_GET['pesan']?>');</script>
+                                <p style="color:red;"><?=@$_GET['pesan']?></p>
                             <?php endif;
                             ?>
                             <formpicture>

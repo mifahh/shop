@@ -35,7 +35,7 @@
             
                 header("Location: ../Index.php");
             }else{
-                header('Location: ../login.php?pesan=username atau password salah!');    
+                header('Location: ../login.php?pesan=Login failed. username atau password salah!, silahkan coba lagi.');    
             }
         }
     }

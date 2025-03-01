@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     // echo "Nilai Parameter : " . $id;
     $user = new User();
     if($user->deleteUser($id)){
-        header('Location: ../Login.php?pesan= hapus berhasil');
+        header('Location: ../Login.php?pesan=Hapus akun berhasil');
     }else{
         echo 'Error';
     }
@@ -32,9 +32,9 @@ if(isset($_POST['rstbutton'])){
     if($user!=null){
         // echo "Nilai Parameter 3 : " . $data['newpassword'];
         $usr->updatePassword($data);
-        header('Location:../Login.php?pesan=Reset berhasil, Silahkan Login');
+        header('Location:../Login.php?pesan=Reset password berhasil, Silahkan Login');
     }else{
-        header('Location: ../ForgotPassword.php?pesan=user tidak ditemukan');    
+        header('Location: ../ForgotPassword.php?pesan=User tidak ditemukan');    
     }   
 }
 ?>

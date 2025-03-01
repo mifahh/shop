@@ -13,7 +13,7 @@
                             <h3>Login</h3>
                             <?php if(@$_GET['pesan']!=null):
                             ?>
-                                <script>alert('<?=@$_GET['pesan']?>');</script>
+                                <p style="color:red;"><?=@$_GET['pesan']?></p>
                             <?php endif;
                             ?>
                             <formpicture>
@@ -65,9 +65,9 @@
                     alert("Password seharusnya lebih dari 8 karakter.");
                     event.preventDefault();
                     return false;
-                }   
-                return true;          
-            }      
+                } 
+                    return true;          
+                }      
             
             logbutton.addEventListener("click", ValidationForm);      
         </script>

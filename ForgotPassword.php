@@ -10,7 +10,7 @@
                             <h3>Reset your Password</h3>
                             <?php if(@$_GET['pesan']!=null):
                             ?>
-                                <script>alert('<?=@$_GET['pesan']?>');</script>
+                                <p style="color:red;"><?=@$_GET['pesan']?></p>
                             <?php endif;
                             ?>
                             <formpicture>
@@ -72,7 +72,7 @@
                 }  
 
                 if (newpassword !== cpassword) {
-                    alert("Password baru tidak sama.");
+                    alert("Password baru tidak sama dengan Confirm Password.");
                     event.preventDefault();
                     return false;
                 }

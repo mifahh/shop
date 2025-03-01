@@ -20,12 +20,21 @@ class User{
     public function CreateUser(){
         $sql = "INSERT INTO `users` (`username`, `password`, `email`) VALUES (?,?,?)";
         $statement = $this->database->database->prepare($sql);
-        
-        if($statement->execute([$this->username, $this->password, $this->email])){
-            header("Location: ../Login.php?pesan=Registrasi Berhasil");
-        }else{
-            header("Location: ../Register.php?pesan=Registrasi Gagal");
+        try{
+            if($statement->execute([$this->username, $this->password, $this->email])){
+                header("Location: ../Login.php?pesan=Registrasi Berhasil, Silahkan Login");
+            }
+        }catch (PDOException $e) {
+            echo "Database Error: " . $e->getMessage();
+            header("Location: ../Register.php?pesan=Registrasi Gagal, Username atau Email telah digunakan");
+            return false;
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+            return false;
         }
+        // if((checkUsrDatabase($this->username, $this->email))!=null){
+        //     header("Location: ../Register.php?pesan=Registrasi Gagal, Username atau Email telah digunakan");
+        // }
     }
 
     public function showAll(){
@@ -63,6 +72,17 @@ class User{
         $statement->bindParam(':pswd', $data['newpassword'],PDO::PARAM_STR);
         return $statement->execute();
     }
+
+    // public function checkUsrDatabase($username, $email){
+    //     $sql = "SELECT * FROM `users` WHERE `username`=:username  OR `email`=:email";
+    //     $statement = $this->database->database->prepare($sql);
+    //     $statement->bindParam(':username', $username, PDO::PARAM_STR);
+    //     $statement->bindParam(':email', $email, PDO::PARAM_STR);
+
+    //     $statement->execute();
+    //     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    //     return $result;
+    // }
 
     public function checkAccount($data){
         $sql = "SELECT * FROM `users` WHERE `username`=:username  AND `password`=:pswd";
