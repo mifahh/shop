@@ -6,7 +6,7 @@
             <section id="Register form">
                 <bgformpicture>
                     <bgform>
-                        <form style="display: inline-flex; flex-direction: column;" method="POST" action="PHP/Auth.php" id="regForm">
+                        <form style="display: inline-flex; flex-direction: column;" method="POST" action="PHP/Controllers/Auth.php" id="regForm">
                             <h3>Create your Account</h3>
                             <?php if(@$_GET['pesan']!=null):
                             ?>

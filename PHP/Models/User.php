@@ -1,5 +1,5 @@
 <?php
-require 'dbConnection.php';
+require 'PHP/dbConnection.php';
 
 class User{
     private $username;

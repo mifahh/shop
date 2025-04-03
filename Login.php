@@ -9,7 +9,7 @@
             <section id="Login form">
                 <bgformpicture>
                     <bgform>
-                        <form style="display: inline-flex; flex-direction: column;" method="POST" action="PHP/Auth.php" id="logForm" name="logform">
+                        <form style="display: inline-flex; flex-direction: column;" method="POST" action="PHP/Controllers/Auth.php" id="logForm" name="logform">
                             <h3>Login</h3>
                             <?php if(@$_GET['pesan']!=null):
                             ?>

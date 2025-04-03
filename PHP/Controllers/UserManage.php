@@ -1,10 +1,10 @@
 <?php
-include("User.php");
+include("PHP/Models/User.php");
 
 //delete
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $id = @$_GET['id'];
-    // $id = @$_SESSION["idusr"];
+    // $id = @$_GET['id'];
+    $id = @$_SESSION["idusr"];
     // echo "Nilai Parameter : " . $id;
     $user = new User();
     if($user->deleteUser($id)){

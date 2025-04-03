@@ -37,7 +37,7 @@
                     </div> -->
                 </div>
                 <div>
-                    <a href="PHP/UserManage.php?id=<?=@$_SESSION["id"]?>">
+                    <a href="PHP/Controllers/UserManage.php">
                         <button id="delbutton" name="delbutton" style="width: 192px; height: 52px; position: relative; padding: 10px; margin: auto; background:Red; border-radius: 6px; border: none;">
                             <text_tombol style="left: 64.03px; top: 16.30px; position: static; color:  white;">Delete Account?</text_tombol>
                         </button>

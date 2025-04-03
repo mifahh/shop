@@ -6,7 +6,7 @@
             <section id="Forgot password form">
                 <bgformpicture>
                     <bgform>
-                        <form style="display: inline-flex; flex-direction: column;" method="POST" action="PHP/UserManage.php" id="rstForm">
+                        <form style="display: inline-flex; flex-direction: column;" method="POST" action="PHP/Controllers/UserManage.php" id="rstForm">
                             <h3>Reset your Password</h3>
                             <?php if(@$_GET['pesan']!=null):
                             ?>
