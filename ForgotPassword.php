@@ -10,7 +10,7 @@
                             <h3>Reset your Password</h3>
                             <?php if(@$_GET['pesan']!=null):
                             ?>
-                                <p style="color:red;"><?=@$_GET['pesan']?></p>
+                                <p style="color:red;"><?=@$_GET['pesan']?></p>  
                             <?php endif;
                             ?>
                             <formpicture>
@@ -49,8 +49,8 @@
         <script>
             function ValidationForm() {
                 let username = document.getElementById('username').value;
-                let password = document.getElementById('oldPassword').value;
-                let newpassword = document.getElementById('newPassword').value;
+                let password = document.getElementById('password').value;
+                let newpassword = document.getElementById('newpassword').value;
                 let cpassword = document.getElementById('cpassword').value;
                 
                 if(username == '' || password == '' || newpassword == ''){

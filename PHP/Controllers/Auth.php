@@ -2,15 +2,19 @@
     // error_reporting(0);
     // error_log(0)
     
-    include ("PHP/Models/User.php");
-    
+    define('ROOT_PATH', __DIR__ . '/../../');
+    include ROOT_PATH . 'PHP/Models/User.php'; //fixing bug direktori kontol
+
+    // include ("PHP/Models/User.php");
+    // echo __DIR__;
+
     //register
     if(isset($_POST["regbutton"])!=null){
         $usr = new User($_POST['username'], $_POST['password'], $_POST['email']);
         $usr->CreateUser();
     }
     
-    //login
+    //login, coba pake method get
     if(isset($_POST["logbutton"])!=null){
         $data['username']=$_POST['username'];
         $data['password']=$_POST['password'];
@@ -33,9 +37,9 @@
                 $_SESSION["email"]=$user["email"];
                 // echo "Session variables are set.";
             
-                header("Location: ../Index.php");
+                header("Location: ../../Index.php");
             }else{
-                header('Location: ../login.php?pesan=Login failed. username atau password salah!, silahkan coba lagi.');    
+                header('Location: ../../login.php?pesan=Login failed. username atau password salah!, silahkan coba lagi.');    
             }
         }
     }

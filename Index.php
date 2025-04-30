@@ -25,8 +25,8 @@
                     <h2>Banyak Game yang bisa kamu mainkan</h2>
                 </div>
                 <div style="display: inline-flex;">
-                    <input style="width: 386px;height: 56px;background: white;border: 1px black solid;padding-left: 15px;padding-right: 15px;">
-                    <a type="submit" href="#search">
+                    <input type="text" name="gamename" id="gamename" style="width: 386px;height: 56px;background: white;border: 1px black solid;padding-left: 15px;padding-right: 15px;">
+                    <a type="submit" id="searchbutton" name="searchbutton" href="#search">
                         <img style="width: 60px;padding-right: 15px;padding-left: 15px;" src="Image/Search ICON.png">
                     </a>
                 </div>
@@ -94,6 +94,20 @@
         </section>
 <!-- recomendations -->
     </main>
+    <script> 
+            function ValidationForm() {
+                let gamename = document.getElementById('gamename').value;
+                
+                if(gamename == ''){
+                    alert("Tidak boleh ada kotak yang kosong.");
+                    event.preventDefault();
+                    return false;
+                }
+                    return true;          
+            }      
+            
+            searchbutton.addEventListener("click", ValidationForm);      
+    </script>
 <?php
     include("HTML/Footer.html");
 ?>

@@ -1,5 +1,7 @@
 <?php
-require 'PHP/dbConnection.php';
+define('ROOT_PATH', __DIR__ . '/../../');
+require ROOT_PATH . 'PHP/dbConnection.php'; //fixing bug direktori kontol
+// require 'PHP/dbConnection.php';
 
 class User{
     private $username;
@@ -22,11 +24,11 @@ class User{
         $statement = $this->database->database->prepare($sql);
         try{
             if($statement->execute([$this->username, $this->password, $this->email])){
-                header("Location: ../Login.php?pesan=Registrasi Berhasil, Silahkan Login");
+                header("Location: ../../Login.php?pesan=Registrasi Berhasil, Silahkan Login");
             }
         }catch (PDOException $e) {
             echo "Database Error: " . $e->getMessage();
-            header("Location: ../Register.php?pesan=Registrasi Gagal, Username atau Email telah digunakan");
+            header("Location: ../../Register.php?pesan=Registrasi Gagal, Username telah digunakan");
             return false;
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
@@ -66,9 +68,10 @@ class User{
 
     public function updatePassword($data)
     {
-        $sql = "UPDATE `users` SET `password`=:pswd WHERE `username`=:username ";
+        $sql = "UPDATE `users` SET `password`=:pswd WHERE `username`=:username AND `password`=:oldpswd";
         $statement = $this->database->database->prepare($sql);
         $statement->bindParam(':username', $data['username'],PDO::PARAM_STR);
+        $statement->bindParam(':oldpswd', $data['password'],PDO::PARAM_STR);
         $statement->bindParam(':pswd', $data['newpassword'],PDO::PARAM_STR);
         return $statement->execute();
     }
@@ -84,16 +87,27 @@ class User{
     //     return $result;
     // }
 
-    public function checkAccount($data){
-        $sql = "SELECT * FROM `users` WHERE `username`=:username  AND `password`=:pswd";
+    public function checkAccount($data) {
+        $sql = "SELECT `username`, `password` FROM `users` WHERE `username` = :username";
         $statement = $this->database->database->prepare($sql);
         $statement->bindParam(':username', $data['username'], PDO::PARAM_STR);
-        $statement->bindParam(':pswd', $data['password'], PDO::PARAM_STR);
-
+    
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-        return $user;
+    
+        // Jika pengguna tidak ditemukan
+        if (!$user) {
+            return null; // User not found
+        }
+    
+        // Validasi password lama
+        if ($user['password'] !== $data['password']) {
+            return 'password_incorrect'; // Wrong old password
+        }
+    
+        return $user; // User ditemukan dan password valid
     }
+    
 
     public function deleteUser($id){
         $sql = "DELETE FROM `users` WHERE `id` = :id";
