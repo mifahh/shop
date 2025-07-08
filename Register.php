@@ -20,7 +20,7 @@
                                 </fillform>
                                 <fillform>
                                     <label for="email">Email Address:</label>
-                                    <input type="text" name="email" id="email" placeholder="email" style="width: 386px; border-style: none;display: inline-flex; padding-left: 15px;padding-right: 15px;">
+                                    <input type="email" name="email" id="email" placeholder="email" style="width: 386px; border-style: none;display: inline-flex; padding-left: 15px;padding-right: 15px;">
                                 </fillform>
                                 <fillform>
                                     <label for="password">Password:</label>
